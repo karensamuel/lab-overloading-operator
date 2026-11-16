@@ -73,7 +73,7 @@ class Complex{
 
     }
     // postfix c++ has paramter
-    Complex& operator ++(int x){
+    Complex operator ++(int x){
       Complex temp =*this;
       this->real++;
 
@@ -89,7 +89,14 @@ class Complex{
       return *this;
     }
     // comparisson > <
-    // [] , () , == , !=
+    bool operator>(const Complex& c){
+      if(this->real >c.real && this->img > c.img){
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+    // [] subscript operator, () , == , !=
     //== , !=
     // q : does & matter here?
     bool operator!=(const Complex& c){
@@ -147,10 +154,13 @@ return Complex(c.getReal() / x, c.getImg());
     }
 int main(){
     Complex c1= Complex(1,2);
-    Complex c2= Complex(1,2);
+    Complex c2= Complex(3,4);
     Complex c3= Complex(5,6);
-    c3= c1+5;
+    c3= c2=c1;
+    c2++;
     double c = (double)c1;
-    cout << c3.getReal()<<c3.getImg()<<c;
+    cout<<++c2<<c2;
+    cin>> c2;
+    cout <<c2;
     return 0;
 }
