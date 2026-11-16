@@ -97,6 +97,16 @@ class Complex{
       }
     }
     // [] subscript operator, () , == , !=
+    // [] 0-> real , 1-> img
+    int& operator[](int index){
+      if(index == 0){
+        return real;
+      }else if(index == 1){
+        return img;
+      }else{
+        cout<<"invalid index";
+      }
+    }
     //== , !=
     // q : does & matter here?
     bool operator!=(const Complex& c){
@@ -160,7 +170,7 @@ int main(){
     c2++;
     double c = (double)c1;
     cout<<++c2<<c2;
-    cin>> c2;
+    cin >> c2[1];
     cout <<c2;
     return 0;
 }
